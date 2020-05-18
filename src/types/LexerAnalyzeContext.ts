@@ -18,11 +18,11 @@ export type LexerForwardFunction = () => string | undefined
 export type LexerCurrentFunction = () => number
 
 /**
- * Returns whether current string matches patterns.
+ * Returns whether current string matches pattern.
  *
- * @param patterns String and RegExp array.
+ * @param pattern Pattern string.
  */
-export type LexerMatchFunction = (...patterns: (string | RegExp)[]) => boolean
+export type LexerMatchFunction = (pattern: string) => boolean
 
 /*
  * LexerAnalyzeContext type.
