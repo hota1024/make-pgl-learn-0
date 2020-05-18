@@ -2,9 +2,9 @@ import { TokenInterface } from '../../interfaces'
 import { Pos } from '../../classes'
 
 /*
- * Token abstract class.
+ * Token class.
  */
-export abstract class Token implements TokenInterface {
+export class Token implements TokenInterface {
   /**
    * Token position.
    */
