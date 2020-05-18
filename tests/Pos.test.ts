@@ -20,6 +20,6 @@ describe('Pos class test', () => {
     const b1 = new Pos(4, 6)
     const b2 = b0.merge(b1)
     expect(b2.start).toBe(1)
-    expect(b2.end).toBe(19)
+    expect(b2.end).toBe(20)
   })
 })
