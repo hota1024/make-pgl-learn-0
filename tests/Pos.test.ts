@@ -1,3 +1,5 @@
+import { Pos } from '../src/classes'
+
 describe('Pos class test', () => {
   test('should be created correctly', () => {
     const a = new Pos(0, 1)
