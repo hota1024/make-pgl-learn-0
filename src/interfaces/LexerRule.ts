@@ -17,5 +17,5 @@ export interface LexerRuleInterface {
    *
    * @param context Analyzing context.
    */
-  execute(context: LexerAnalyzeContext): Token | void
+  execute(context: LexerAnalyzeContext): Token
 }
