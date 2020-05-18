@@ -8,9 +8,14 @@ import { LexerInterface } from '../interfaces'
 export type LexerCharFunction = (offset?: number) => string | undefined
 
 /**
- * Forwarding current char and returns it.
+ * Forward current char and returns it.
  */
-export type LexerNextFunction = () => string | undefined
+export type LexerForwardFunction = () => string | undefined
+
+/*
+ * Returns current position in the source string.
+ */
+export type LexerCurrentFunction = () => number
 
 /**
  * Returns whether current string matches patterns.
@@ -35,7 +40,9 @@ export type LexerAnalyzeContext = {
 
   char: LexerCharFunction
 
-  next: LexerNextFunction
+  forward: LexerForwardFunction
+
+  current: LexerCurrentFunction
 
   match: LexerMatchFunction
 }
