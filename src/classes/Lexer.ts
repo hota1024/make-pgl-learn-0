@@ -12,9 +12,18 @@ import {
  */
 export class Lexer implements LexerInterface {
   /**
-   * Rules.
+   * Lexer rules.
    */
-  rules: LexerRuleInterface[]
+  readonly rules: LexerRuleInterface[]
+
+  /**
+   * Lexer constructor.
+   *
+   * @param rules Lexer rules.
+   */
+  constructor(rules: LexerRuleInterface[]) {
+    this.rules = rules
+  }
 
   /**
    * Analyze source string and returns tokens.
@@ -27,12 +36,11 @@ export class Lexer implements LexerInterface {
     const { char } = context
 
     while (char()) {
-      for (const rule of this.rules) {
-        const result = rule.execute(context)
-        if (result) {
-          tokens.push(result)
-          break
-        }
+      const rule = this.rules.find((rule) => rule.validate(context))
+      if (rule) {
+        tokens.push(rule.execute(context))
+      } else {
+        throw new Error('Unknown token...')
       }
     }
 
