@@ -1,4 +1,4 @@
-import { TokenInterface } from '../Token'
+import { TokenInterface } from './Token'
 
 /*
  * Lexer interface.
