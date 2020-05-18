@@ -1,4 +1,4 @@
-import { TokenInterface } from './Token'
+import { Token } from '../abstracts'
 
 /*
  * Lexer interface.
@@ -9,5 +9,5 @@ export interface LexerInterface {
    *
    * @param source Source code.
    */
-  analyze(source: string): TokenInterface[]
+  analyze(source: string): Token[]
 }
