@@ -8,13 +8,17 @@ describe('AlphabetRule class test', () => {
   test('should return reserved token', () => {
     const [token0, , token1] = lexer.analyze('print print')
     expect(token0).toBeInstanceOf(PrintToken)
+
     expect(token1).toBeInstanceOf(PrintToken)
   })
 
   test('should return identifier token', () => {
     const [token0, , token1] = lexer.analyze('hoge fuga')
     expect(token0).toBeInstanceOf(IdentifierToken)
+    expect((token0 as IdentifierToken).identifier).toBe('hoge')
+
     expect(token1).toBeInstanceOf(IdentifierToken)
+    expect((token1 as IdentifierToken).identifier).toBe('fuga')
   })
 
   test('position', () => {
