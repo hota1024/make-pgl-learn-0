@@ -38,11 +38,14 @@ export class Lexer implements LexerInterface {
     while (char()) {
       const rule = this.rules.find((rule) => rule.validate(context))
       if (rule) {
-        tokens.push(rule.execute(context))
+        const token = rule.execute(context)
+        tokens.push(token)
       } else {
-        throw new Error('Unknown token...')
+        context.forward()
       }
     }
+
+    console.log({ tokens })
 
     return tokens
   }
