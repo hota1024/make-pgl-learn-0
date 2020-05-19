@@ -21,7 +21,7 @@ export class AlphabetRule implements LexerRuleInterface {
       forward()
     }
 
-    const pos = new Pos(start, current())
+    const pos = new Pos(start, current() - 1) // - 1 for forward
 
     if (value === 'print') {
       return new PrintToken(pos)
