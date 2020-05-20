@@ -1,4 +1,5 @@
 export * from './AlphabetRule'
+export * from './InlineCommentRule'
 export * from './NewLineRule'
 export * from './NumberRule'
 export * from './SpaceRule'
