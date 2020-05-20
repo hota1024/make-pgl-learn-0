@@ -9,8 +9,10 @@ export type LexerCharFunction = (offset?: number) => string | undefined
 
 /**
  * Forward current char and returns it.
+ *
+ * @param steps Steps forward(Default is `1`).
  */
-export type LexerForwardFunction = () => string | undefined
+export type LexerForwardFunction = (steps?: number) => string | undefined
 
 /*
  * Returns current position in the source string.
