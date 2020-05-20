@@ -41,7 +41,7 @@ export class Lexer implements LexerInterface {
         const token = rule.execute(context)
         tokens.push(token)
       } else {
-        throw new Error('Unexpected token')
+        throw new Error(`Unexpected token '${char()}':${context.current()}`)
         // context.forward()
       }
     }
