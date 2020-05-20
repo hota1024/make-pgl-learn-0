@@ -60,8 +60,8 @@ export class Lexer implements LexerInterface {
     const char: LexerCharFunction = (offset = 0) => {
       return at + offset > length - 1 ? void 0 : source[at + offset]
     }
-    const forward: LexerForwardFunction = () => {
-      ++at
+    const forward: LexerForwardFunction = (steps = 1) => {
+      at += steps
       return char()
     }
     const match: LexerMatchFunction = (pattern) => {
