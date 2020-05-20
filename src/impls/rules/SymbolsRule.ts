@@ -64,7 +64,7 @@ export class SymbolsRule implements LexerRuleInterface {
     return !!this.getSymbol(match)
   }
 
-  execute({ match, forward, current, char }: LexerAnalyzeContext): SymbolToken {
+  execute({ match, forward, current }: LexerAnalyzeContext): SymbolToken {
     const symbol = this.getSymbol(match)
     const start = current()
 
