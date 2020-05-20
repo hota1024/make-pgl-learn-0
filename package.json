@@ -1,13 +1,9 @@
 {
   "name": "make-pgl-learn-0",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "lib/index.js",
   "author": "hota1024 <hotalog@hota1024.com>",
   "license": "MIT",
-  "files": [
-    "lib",
-    "src"
-  ],
   "type": "lib",
   "scripts": {
     "build": "tsc"
