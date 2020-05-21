@@ -1,12 +1,22 @@
 {
   "compilerOptions": {
-    "module": "CommonJS",
-    "target": "ESNext",
+    "target": "ES6",
+    "module": "commonjs",
     "outDir": "./lib",
+    "rootDir": "./src",
+    "sourceMap": true,
+    "esModuleInterop": true,
     "declaration": true,
-    "declarationDir": "./lib"
+    "declarationMap": true,
+    "declarationDir": "./types",
+    "resolveJsonModule": true
   },
   "include": [
     "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "lib",
+    "types"
   ]
 }
