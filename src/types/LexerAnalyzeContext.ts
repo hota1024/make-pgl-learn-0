@@ -1,4 +1,5 @@
 import { LexerInterface } from '../interfaces'
+import { Token } from '..'
 
 /**
  * Returns current char with offset.
@@ -39,6 +40,11 @@ export type LexerAnalyzeContext = {
    * Source string.
    */
   source: string
+
+  /**
+   * Tokens.
+   */
+  tokens?: Token[]
 
   char: LexerCharFunction
 

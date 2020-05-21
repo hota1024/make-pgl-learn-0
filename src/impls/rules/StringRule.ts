@@ -35,6 +35,7 @@ export class StringRule implements LexerRuleInterface {
       if (typeof item === 'undefined') {
         throw new LexerRuleAnalyzeError(
           'Unterminated string literal.',
+          this,
           new Pos(start, current()),
           context
         )

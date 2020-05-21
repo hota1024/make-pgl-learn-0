@@ -6,6 +6,8 @@ import {
   LexerForwardFunction,
   LexerMatchFunction,
 } from '../types'
+import { LexerRuleAnalyzeError } from './LexerRuleAnalyzeError'
+import { Pos } from '.'
 
 /*
  * Lexer class.
@@ -33,16 +35,20 @@ export class Lexer implements LexerInterface {
   analyze(source: string): Token[] {
     const tokens: Token[] = []
     const context = this.makeAnalyzeContext(source)
-    const { char } = context
+    const { char, current } = context
 
     while (char()) {
+      context.tokens = tokens
       const rule = this.rules.find((rule) => rule.validate(context))
       if (rule) {
         const token = rule.execute(context)
         tokens.push(token)
       } else {
-        throw new Error(`Unexpected token '${char()}':${context.current()}`)
-        // context.forward()
+        throw new LexerRuleAnalyzeError(
+          `Unexpected token '${char()}'.`,
+          new Pos(current(), current()),
+          context
+        )
       }
     }
 
@@ -53,6 +59,7 @@ export class Lexer implements LexerInterface {
    * Returns analyzing context.
    *
    * @param source Souce string.
+   * @param tokens Tokens array.
    */
   makeAnalyzeContext(source: string): LexerAnalyzeContext {
     let at = 0

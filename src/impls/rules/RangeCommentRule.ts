@@ -1,7 +1,7 @@
 import { LexerRuleInterface } from '../../interfaces'
 import { LexerAnalyzeContext, LexerMatchFunction } from '../../types'
 import { RangeCommentToken } from '..'
-import { Pos } from '../../classes'
+import { Pos, LexerRuleAnalyzeError } from '../../classes'
 
 /*
  * RangeCommentCap type.
@@ -36,7 +36,8 @@ export class RangeCommentRule implements LexerRuleInterface {
     return !!this.getCap(match)
   }
 
-  execute({ match, forward, current }: LexerAnalyzeContext): RangeCommentToken {
+  execute(context: LexerAnalyzeContext): RangeCommentToken {
+    const { match, forward, current } = context
     const cap = this.getCap(match)
     const start = current()
     let content = ''
@@ -47,7 +48,12 @@ export class RangeCommentRule implements LexerRuleInterface {
       const item = forward()
 
       if (typeof item === 'undefined') {
-        throw new Error('Unterminated comment')
+        throw new LexerRuleAnalyzeError(
+          'Unterminated range comment.',
+          this,
+          new Pos(start, current()),
+          context
+        )
       } else if (match(cap.end)) {
         break
       } else {
