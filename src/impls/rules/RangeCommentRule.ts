@@ -57,8 +57,6 @@ export class RangeCommentRule implements LexerRuleInterface {
 
     forward(cap.end.length)
 
-    console.log({ content })
-
     return new RangeCommentToken(
       cap.start,
       cap.end,

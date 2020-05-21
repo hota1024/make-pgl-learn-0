@@ -23,7 +23,7 @@ describe('SymbolsRule class test', () => {
 
     expect(token).toBeInstanceOf(PlusToken)
     expect(token.pos.start).toBe(3)
-    expect(token.pos.end).toBe(4)
+    expect(token.pos.end).toBe(3)
   })
 
   test('- minus symbol', () => {
@@ -31,7 +31,7 @@ describe('SymbolsRule class test', () => {
 
     expect(token).toBeInstanceOf(MinusToken)
     expect(token.pos.start).toBe(3)
-    expect(token.pos.end).toBe(4)
+    expect(token.pos.end).toBe(3)
   })
 
   test('* asterisk symbol', () => {
@@ -39,7 +39,7 @@ describe('SymbolsRule class test', () => {
 
     expect(token).toBeInstanceOf(AsteriskToken)
     expect(token.pos.start).toBe(3)
-    expect(token.pos.end).toBe(4)
+    expect(token.pos.end).toBe(3)
   })
 
   test('/ asterisk symbol', () => {
@@ -47,7 +47,7 @@ describe('SymbolsRule class test', () => {
 
     expect(token).toBeInstanceOf(SlashToken)
     expect(token.pos.start).toBe(3)
-    expect(token.pos.end).toBe(4)
+    expect(token.pos.end).toBe(3)
   })
 
   test('( left parenthesis symbol', () => {
@@ -55,7 +55,7 @@ describe('SymbolsRule class test', () => {
 
     expect(token).toBeInstanceOf(LeftParenthesisToken)
     expect(token.pos.start).toBe(0)
-    expect(token.pos.end).toBe(1)
+    expect(token.pos.end).toBe(0)
   })
 
   test(') right parenthesis symbol', () => {
@@ -63,6 +63,6 @@ describe('SymbolsRule class test', () => {
 
     expect(token).toBeInstanceOf(RightParenthesisToken)
     expect(token.pos.start).toBe(0)
-    expect(token.pos.end).toBe(1)
+    expect(token.pos.end).toBe(0)
   })
 })

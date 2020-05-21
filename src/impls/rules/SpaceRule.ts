@@ -12,7 +12,7 @@ export class SpaceRule implements LexerRuleInterface {
   }
 
   execute({ current, forward }: LexerAnalyzeContext): SpaceToken {
-    const token = new SpaceToken(new Pos(current(), current() + 1))
+    const token = new SpaceToken(new Pos(current(), current()))
     forward()
 
     return token

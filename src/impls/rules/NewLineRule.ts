@@ -12,7 +12,7 @@ export class NewLineRule implements LexerRuleInterface {
   }
 
   execute({ current, forward }: LexerAnalyzeContext): NewLineToken {
-    const token = new NewLineToken(new Pos(current(), current() + 1))
+    const token = new NewLineToken(new Pos(current(), current()))
     forward()
 
     return token

@@ -7,7 +7,7 @@ import {
   SlashToken,
   RightParenthesisToken,
   LeftParenthesisToken,
-} from '..'
+} from '../tokens'
 import { LexerMatchFunction, LexerAnalyzeContext } from '../../types'
 import { Pos } from '../../classes'
 
@@ -70,7 +70,7 @@ export class SymbolsRule implements LexerRuleInterface {
 
     forward(symbol.symbol.length)
 
-    return new symbol.class(new Pos(start, current()))
+    return new symbol.class(new Pos(start, current() - 1))
   }
 
   /**
