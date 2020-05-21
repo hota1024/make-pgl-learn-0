@@ -2,6 +2,7 @@ import { LexerRuleInterface } from '../../interfaces'
 import { LexerAnalyzeContext } from '../../types'
 import { StringToken } from '../tokens'
 import { Pos } from '../../classes'
+import { LexerRuleAnalyzeError } from '../../classes/LexerRuleAnalyzeError'
 
 /*
  * String rule class.
@@ -21,7 +22,8 @@ export class StringRule implements LexerRuleInterface {
     return this.isQuote(char())
   }
 
-  execute({ char, forward, current }: LexerAnalyzeContext): StringToken {
+  execute(context: LexerAnalyzeContext): StringToken {
+    const { char, forward, current } = context
     const start = current()
     const quote = char()
     let value = ''
@@ -31,7 +33,11 @@ export class StringRule implements LexerRuleInterface {
       const item = forward()
 
       if (typeof item === 'undefined') {
-        throw new Error('Unterminated string literal.')
+        throw new LexerRuleAnalyzeError(
+          'Unterminated string literal.',
+          new Pos(start, current()),
+          context
+        )
       } else if (item === quote && !escape) {
         // Closing quote
         break
