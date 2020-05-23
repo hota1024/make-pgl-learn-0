@@ -3,7 +3,7 @@ import { Pos } from '../classes'
 /*
  * ASTNode interface.
  */
-export interface ASTNode {
+export interface ASTNodeInterface {
   /**
    * Node position.
    */
