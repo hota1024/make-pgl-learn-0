@@ -1,5 +1,6 @@
 export * from './ASTNode'
 export * from './Lexer'
 export * from './LexerRule'
+export * from './Parser'
 export * from './Pos'
 export * from './Token'
