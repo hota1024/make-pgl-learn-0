@@ -1,4 +1,4 @@
-import { Pos, ASTNode } from '../..'
+import { ASTNode } from '../..'
 
 /*
  * NumberNode class.
