@@ -9,5 +9,5 @@ export interface ParserInterface {
    *
    * @param tokens
    */
-  parse(tokens: Token[]): ASTNode
+  parse(tokens: Token[]): ASTNode[]
 }
